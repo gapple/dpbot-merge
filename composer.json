@@ -1,6 +1,11 @@
 {
     "name": "gapple/dpbot-merge",
     "type": "project",
+    "description": "Test for Dependabot with Composer Merge plugin",
+    "license": [
+        "MIT",
+        "GPL-2.0-or-later"
+    ],
     "require": {
         "php": "^7.3 || ^8.0",
         "wikimedia/composer-merge-plugin": "^2.0"
