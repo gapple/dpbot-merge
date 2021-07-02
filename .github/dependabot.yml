@@ -1,0 +1,11 @@
+version: 2
+updates:
+- package-ecosystem: composer
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "09:00"
+    timezone: America/Vancouver
+  rebase-strategy: auto
+  assignees:
+    - gapple
