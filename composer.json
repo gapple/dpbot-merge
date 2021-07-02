@@ -2,7 +2,11 @@
     "name": "gapple/dpbot-merge",
     "type": "project",
     "require": {
+        "php": "^7.3 || ^8.0",
         "wikimedia/composer-merge-plugin": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     },
     "extra": {
         "merge-plugin": {
