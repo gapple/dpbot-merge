@@ -1,0 +1,7 @@
+{
+    "name": "gapple/dpbot-merge-sub",
+    "type": "library",
+    "require": {
+        "gapple/structured-fields": "^0.3"
+    }
+}

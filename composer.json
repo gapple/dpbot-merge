@@ -1,0 +1,17 @@
+{
+    "name": "gapple/dpbot-merge",
+    "type": "project",
+    "require": {
+        "wikimedia/composer-merge-plugin": "^2.0"
+    },
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "sub/composer.json"
+            ],
+            "recurse": false,
+            "replace": false,
+            "merge-extra": true
+        }
+    }
+}
