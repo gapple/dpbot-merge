@@ -2,6 +2,11 @@
     "name": "gapple/dpbot-merge-sub",
     "type": "library",
     "require": {
-        "gapple/structured-fields": "^0.3"
+        "gapple/structured-fields": "^0.3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "gapple\\DpbotMergeSub\\" : "src/"
+        }
     }
 }

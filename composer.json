@@ -14,7 +14,8 @@
         "phpunit/phpunit": "^9.5"
     },
     "scripts": {
-        "phpunit": "phpunit"
+        "phpunit": "phpunit",
+        "evaluator": "gapple\\DpbotMergeSub\\Evaluator::run"
     },
     "extra": {
         "merge-plugin": {
