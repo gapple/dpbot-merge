@@ -1,19 +1,21 @@
 <?php
 
+namespace gapple\DpbotMergeSub;
+
 use gapple\StructuredFields\Bytes;
 use gapple\StructuredFields\Serializer;
 use gapple\StructuredFields\Token;
 use PHPUnit\Framework\TestCase;
 
-class Tester extends TestCase {
+class SimpleTest extends TestCase {
 
   public function testSerializeList() {
     $this->assertEquals(
       '"one", "two", three',
       Serializer::serializeList([
-        ['one', new stdClass()],
-        ['two', new stdClass()],
-        [new Token('three'), new stdClass()],
+        ['one', new \stdClass()],
+        ['two', new \stdClass()],
+        [new Token('three'), new \stdClass()],
       ])
     );
   }
@@ -24,10 +26,10 @@ class Tester extends TestCase {
       Serializer::serializeDictionary((object) [
         'one' => [
           [
-            ['two', new stdClass()],
-            [new Bytes('three'), new stdClass()],
+            ['two', new \stdClass()],
+            [new Bytes('three'), new \stdClass()],
           ],
-          new stdClass(),
+          new \stdClass(),
         ]
       ])
     );
