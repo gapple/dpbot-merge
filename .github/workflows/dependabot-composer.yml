@@ -47,7 +47,7 @@ jobs:
         run: echo "::set-output name=name::$(git rev-parse --abbrev-ref HEAD | cut -d "/" -f 3-4 | cut -d "-" -f 1)"
 
       - name: Rollback update
-        run: git checkout head^ composer.lock
+        run: git checkout HEAD^ composer.lock
 
       - name: Update dependency
         run: composer update ${{ steps.package-info.outputs.name }} --no-progress
