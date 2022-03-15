@@ -3,7 +3,7 @@ name: Dependabot Composer Fix
 on:
   push:
     branches:
-      - dependabot-test/composer/*
+      - 'dependabot-test/composer/**'
 
 jobs:
   composer:
