@@ -58,3 +58,4 @@ jobs:
           git config user.name gapple
           git config user.email geoff@no-reply.gapple.ca
           git commit -m "[dependabot skip] Fix composer package update"
+          git push
