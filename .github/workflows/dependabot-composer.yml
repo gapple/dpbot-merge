@@ -8,11 +8,10 @@ permissions:
 
 jobs:
   composer:
+    name: Composer Update
     runs-on: ubuntu-latest
 
     if: ${{ github.actor }} == 'dependabot[bot]' && ${{ startsWith(github.head_ref, 'dependabot/composer') }}
-
-    name: Composer Update
 
     steps:
       - uses: actions/checkout@v3
@@ -54,7 +53,7 @@ jobs:
           git checkout origin/${{ github.base_ref }} -- composer.lock
 
       - name: Update dependency
-        run: composer update ${{ steps.dependabot-metadata.outputs.dependency-names }} --no-progress
+        run: composer update --with-all-dependencies ${{ steps.dependabot-metadata.outputs.dependency-names }}:${{ steps.dependabot-metadata.outputs.new-version }} --no-progress
 
       - name: Commit and push changes
         run: |
