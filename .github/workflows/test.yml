@@ -3,6 +3,30 @@ name: Test
 on: pull_request
 
 jobs:
+  check-lock:
+    runs-on: ubuntu-latest
+
+    name: Check Lock File
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 7.4
+        coverage: none
+
+    - name: Setup problem matchers for PHP
+      run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Check for merged dependencies
+      # Need to check for a value in the lock file only added by a merged dependency.
+      run: grep 'gapple/structured-fields' composer.lock > /dev/null 2>&1
+
   unit-tests:
     runs-on: ubuntu-latest
 
