@@ -11,12 +11,13 @@ jobs:
     name: Composer Update
     runs-on: ubuntu-latest
 
-    if: ${{ github.actor }} == 'dependabot[bot]' && ${{ startsWith(github.head_ref, 'dependabot/composer') }}
+    if: github.actor == 'dependabot[bot]' && startsWith(github.head_ref, 'dependabot/composer')
 
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          token: ${{ secrets.DPBOT_WRITE_TOKEN }}
 
       - name: Fetch Dependabot metadata
         id: dependabot-metadata
