@@ -63,7 +63,7 @@ jobs:
         # https://github.com/wikimedia/composer-merge-plugin/pull/219
         run: |
           composer install
-          git checkout composer.lock
+          git checkout origin/${{ github.base_ref }} -- composer.lock
           composer install
 
       - name: Update dependency
