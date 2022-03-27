@@ -52,6 +52,15 @@ jobs:
         run: |
           git fetch --no-tags --no-recurse-submodules --depth=1 origin +${{ github.base_ref }}
           git checkout origin/${{ github.base_ref }} -- composer.lock
+          
+      - name: Install dependencies
+        # merge-plugin currently forces update of merged dependencies during first install.
+        # Roll updates back to limit changes to targed package.
+        # https://github.com/wikimedia/composer-merge-plugin/pull/219
+        run: |
+          composer install
+          git checkout composer.lock
+          composer install
 
       - name: Update dependency
         run: composer update --with-all-dependencies ${{ steps.dependabot-metadata.outputs.dependency-names }}:${{ steps.dependabot-metadata.outputs.new-version }} --no-progress
